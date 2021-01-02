@@ -3,7 +3,8 @@ FROM golang:1.15-alpine AS builder
 WORKDIR /go/app
 COPY . .
 
-CMD ["go", "build", "./cmd/go-modules-update-bore-actions"]
+RUN go build ./cmd/go-modules-update-bore-actions
+#CMD ["go", "build", "./cmd/go-modules-update-bore-actions"]
 
 
 
