@@ -2,4 +2,4 @@ FROM golang:1.15-alpine
 
 COPY . /go/src/app
 
-ENTRYPOINT ["go", "run", "/go/src/app/cmd/go-modules-update-bore-actions"]
+ENTRYPOINT ["cd", "/go/src/app", "&&", "go", "run", "./cmd/go-modules-update-bore-actions"]
