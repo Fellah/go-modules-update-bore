@@ -1,5 +1,6 @@
-FROM alpine:3.10
+FROM golang:1.15-alpine
 
-COPY entrypoint.sh /entrypoint.sh
+WORKDIR /go/src/app
+COPY . .
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["go", "run", "./cmd/go-modules-update-bore-actions"]
