@@ -1,6 +1,5 @@
 FROM golang:1.15-alpine
 
-WORKDIR /go/src/app
-COPY . .
+COPY . /go/src/app
 
-ENTRYPOINT ["go", "run", "./cmd/go-modules-update-bore-actions"]
+ENTRYPOINT ["go", "run", "/go/src/app/cmd/go-modules-update-bore-actions"]
