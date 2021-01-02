@@ -1,5 +1,14 @@
+FROM golang:1.15-alpine AS builder
+
+WORKDIR /go/app
+COPY . .
+
+CMD ["go", "build", "./cmd/go-modules-update-bore-actions"]
+
+
+
 FROM golang:1.15-alpine
 
-COPY . /go/src/app
+COPY --from=builder /go/app/go-modules-update-bore-actions .
 
-ENTRYPOINT ["cd", "/go/src/app", "&&", "go", "run", "./cmd/go-modules-update-bore-actions"]
+ENTRYPOINT ["go-modules-update-bore-actions"]
